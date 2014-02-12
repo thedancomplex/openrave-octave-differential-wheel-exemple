@@ -66,9 +66,10 @@ while(1)
     wr = 0.5
   end
 
-  T = reshape(orBodyGetTransform(robotid),3,4);
-  x = T(1,4);
-  y = T(2,4);
+%  T = reshape(orBodyGetTransform(robotid),3,4);
+%  x = T(1,4);
+%  y = T(2,4);
+  [x,y] = getxy(robotid);
   i = i + 1;
   if (i > max(size(d)))
     i = 1;
@@ -78,6 +79,7 @@ while(1)
   d(2,i) = y;
   figure(1);
   plot(d(1,:),d(2,:));
+  axis([-12,12,-12,12])
 
 
 
